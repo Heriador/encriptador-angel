@@ -30,8 +30,10 @@ const validarTexto = (texto) => {
     alert('No hay texto para encriptar')
     return false
   }
-  if (texto.match(/[^a-zA-Z]/)) {
-    alert('El texto no puede contener caracteres especiales ni números')
+  if (texto.match(/[^a-z]/)) {
+    alert(
+      'El texto no puede contener caracteres especiales ni números ni ser mayusculas'
+    )
     return false
   }
 
@@ -56,7 +58,7 @@ const limpiarCampos = () => {
 }
 
 encriptador.addEventListener('click', () => {
-  const texto = cajatexto.value.toLowerCase()
+  const texto = cajatexto.value
 
   if (!validarTexto(texto)) {
     return limpiarCampos()
@@ -82,7 +84,7 @@ encriptador.addEventListener('click', () => {
 
 desencriptador.addEventListener('click', () => {
   console.log('Desencriptando...')
-  let texto = cajatexto.value.toLowerCase()
+  let texto = cajatexto.value
   if (!validarTexto(texto)) {
     return limpiarCampos()
   }
